@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GIBDD.Profilepage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Switch x:Name="HumanOrganizationSwitch"/>
+                <Entry x:Name="fEntry" Completed="fEntry_Completed" Placeholder="Введите фамилию"/>
+                <Entry x:Name="iEntry" Completed="iEntry_Completed" Placeholder="Введите имя"/>
+                <Entry x:Name="oEntry" Completed="oEntry_Completed" Placeholder="Введите отчество"/>
+                <Entry x:Name="EmailEntry" Completed="EmailEntry_Completed" Placeholder="Введите email"/>
+                <Entry x:Name="PhoneEntry" Completed="PhoneEntry_Completed" Placeholder="Введите телефон"/>
+                <Entry x:Name="SubsectionRegionEntry" Completed="SubsectionRegionEntry_Completed" Placeholder="Выберите регион подразделения"/>
+                <Entry x:Name="SubsectionEntry" Completed="SubsectionEntry_Completed" Placeholder="Выберите подразделение" />
+                <Entry x:Name="IncidentRegionEntry" Completed="IncidentRegionEntry_Completed" Placeholder="Выберите регион события"/>
+                <Button x:Name="SaveBtn" Text="Save" Pressed="SaveBtn_Pressed"/>
+                <Button x:Name="CancelBtn" Text="Cancel" Pressed="CancelBtn_Pressed"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local = "clr-namespace:GIBDD"
+             x:Class="GIBDD.CreateProfilePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10">
+                <Label Text="Choose your hero"/>
+                
+                <Switch IsToggled="{Binding IsHuman}" 
+                        Style="{StaticResource switchStyle}"/>
+
+                <Entry x:Name="FEntry" 
+                       Placeholder="Введите фамилию" 
+                       Text="{Binding SerName}" 
+                       Style="{StaticResource entryStyle}">
+                    <Entry.Behaviors>
+                        <local:ImportantEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry x:Name="IEntry" 
+                       Placeholder="Введите имя" 
+                       Text="{Binding Name}" 
+                       Style="{StaticResource entryStyle}">
+                    <Entry.Behaviors>
+                        <local:ImportantEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                
+                <Entry x:Name="OEntry" 
+                       Placeholder="Введите отчество" 
+                       Text="{Binding MiddleName}" 
+                       Style="{StaticResource entryStyle}"/>
+
+                <Entry x:Name="OrgNameEntry"
+                       Text="{Binding OrgName}"
+                       Placeholder="Название организации" 
+                       IsVisible="{Binding IsOrganization}"
+                       Style="{StaticResource entryStyle}"/>
+                
+                <Entry x:Name="OrgOptionalInformationEntry" 
+                       Text="{Binding OrgOptionalInformation}"
+                       Placeholder="Дополнительная информация" 
+                       IsVisible="{Binding IsOrganization}"
+                       Style="{StaticResource entryStyle}"/>
+                
+                <Entry x:Name="OutNumberEntry" 
+                       Text="{Binding OutNumber}"
+                       Placeholder="Исходящий №" 
+                       IsVisible="{Binding IsOrganization}"
+                       Style="{StaticResource entryStyle}"/>
+                
+                <DatePicker x:Name="RegistrOrgDate"
+                            Date="{Binding RegistrOrgDate}"
+                            IsVisible="{Binding IsOrganization}"/>
+                
+                <Entry x:Name="NumberLetterEntry" 
+                       Text="{Binding NumberLetter}"
+                       Placeholder="Введите номер заказного письма" 
+                       IsVisible="{Binding IsOrganization}"
+                       Style="{StaticResource entryStyle}"/>
+
+
+                <Entry x:Name="EmailEntry" 
+                       Placeholder="Введите email"
+                       Text="{Binding Email}"
+                       Style="{StaticResource entryStyle}">
+                    <Entry.Behaviors> 
+                        <local:EmailEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                
+                <Entry x:Name="PhoneEntry" 
+                       Placeholder="Введите телефон"
+                       Text="{Binding PhoneNumber}"
+                       Style="{StaticResource entryStyle}">
+                    <Entry.Behaviors>
+                        <local:PhoneEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                
+                <Picker x:Name="SubsectionRegionPicker"
+                        ItemsSource="{Binding Regions}"
+                        SelectedItem="{Binding SelectedRegion}"/>
+                
+                <Picker x:Name="SubsectionPicker"
+                        ItemsSource="{Binding SelectedDivisions}"
+                        SelectedItem="{Binding SelectedDiv}"/>
+                
+                <Picker x:Name="IncidentRegionPicker"
+                        ItemsSource="{Binding RegionsOfIncident}"
+                        SelectedItem="{Binding SelectedRegionOfIncident}"/>
+                
+                <Button x:Name="SaveBtn" 
+                        Text="Save" 
+                        Command="{Binding SaveBtnCommandHandler}"/>
+                
+                <Button x:Name="CancelBtn" 
+                        Text="Cancel" 
+                        Command="{Binding CancelBtnCommandHandler}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

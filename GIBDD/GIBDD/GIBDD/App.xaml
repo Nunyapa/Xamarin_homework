@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GIBDD.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="switchStyle" TargetType="Switch">
+                <Setter Property="ThumbColor" Value="Orange"/>
+                <Setter Property="OnColor" Value="LightGreen"/>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
