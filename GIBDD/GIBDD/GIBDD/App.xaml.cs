@@ -6,10 +6,23 @@ namespace GIBDD
 {
     public partial class App : Application
     {
+
+        static DatabaseData database;
+        public static DatabaseData Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DatabaseData();
+                }
+                return database;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainPage());
         }
 

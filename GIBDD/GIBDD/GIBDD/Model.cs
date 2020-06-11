@@ -7,11 +7,12 @@ using System.Reflection;
 using System.Text;
 using SQLite;
 using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 
 namespace GIBDD
 {
     [Table("Profiles")]
-    class ProfilesTable
+    public class ProfilesTable
     {
         [PrimaryKey, AutoIncrement, Unique]
         public int Id { get; set; }
@@ -39,23 +40,23 @@ namespace GIBDD
         public string OrgOptionalInformation { get; set; } = "";
         [MaxLength(40), NotNull]
         public string OutNumber { get; set; } = "";
-        [NotNull]
         public DateTime RegistrOrgDate { get; set; }
         [MaxLength(40), NotNull]
         public string NumberLetter { get; set; } = "";
     }
 
-    class DatabaseData 
+    public class DatabaseData 
     {
-        static private string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "profiles.db");
-        private SQLiteConnection db = new SQLiteConnection(dbPath);
+        static private string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "database.db");
+        private SQLiteAsyncConnection db;
 
         public DatabaseData() 
         {
-            db.CreateTable<ProfilesTable>();
+            this.db = new SQLiteAsyncConnection(dbPath);
+            db?.CreateTableAsync<ProfilesTable>();
         }
 
-        void AddHuman(Profile profile)
+        public async void AddRecord(Profile profile)
         {
             var newRecord = new ProfilesTable
             {
@@ -67,17 +68,79 @@ namespace GIBDD
                 Phone = profile.Phone,
                 SelectedRegion = profile.SelectedRegion,
                 SelectedDiv = profile.SelectedDiv,
+                SelectedRegionOfIncident = profile.SelectedRegionOfIncident,
+                OrgName = profile.OrgName,
+                OrgOptionalInformation = profile.OrgOptionalInformation,
+                OutNumber = profile.OrgName,
+                RegistrOrgDate = profile.RegistrOrgDate,
+                NumberLetter = profile.NumberLetter
+            };
+            await db?.InsertAsync(newRecord);
+        }
+
+        public async void DeleteRecord(int id)
+        {
+            await db?.DeleteAsync<ProfilesTable>(id);
+        }
+
+        public async void UpadateRecord(Profile profile, int id)
+        {
+            var record = new ProfilesTable
+            {
+                Id = id,
+                TypeOfProfile = profile.TypeOfProfile,
+                Sername = profile.Sername,
+                Name = profile.Name,
+                MiddleName = profile.MiddleName,
+                Email = profile.Email,
+                Phone = profile.Phone,
+                SelectedRegion = profile.SelectedRegion,
+                SelectedDiv = profile.SelectedDiv,
                 SelectedRegionOfIncident = profile.SelectedRegionOfIncident
             };
-            db.Insert(newRecord);
+            await db?.UpdateAsync(record);
+        }
 
+        public async Task<ProfilesTable> GetRecord(int id)
+        {
+            var response = await db?.GetAsync<ProfilesTable>(id);
+            return response;
+        }
+
+        public async Task<List<ProfilesTable>> GetAllRecords()
+        {
+            var list = await db?.QueryAsync<ProfilesTable>("SELECT * FROM Profiles");
+            return list;
+        }
+
+        static private Profile toProfile (ProfilesTable record)
+        {
+            var profile = new Profile 
+            {
+                
+                TypeOfProfile = record.TypeOfProfile,
+                Sername = record.Sername,
+                Name = record.Name,
+                MiddleName = record.MiddleName,
+                Email = record.Email,
+                Phone = record.Phone,
+                SelectedRegion = record.SelectedRegion,
+                SelectedDiv = record.SelectedDiv,
+                SelectedRegionOfIncident = record.SelectedRegionOfIncident,
+                OrgName = record.OrgName,
+                OrgOptionalInformation = record.OrgOptionalInformation,
+                OutNumber = record.OrgName,
+                RegistrOrgDate = record.RegistrOrgDate,
+                NumberLetter = record.NumberLetter
+            };
+            return profile;
         }
 
 
     }
 
 
-    class FilesData 
+    public class FilesData 
     {
         public Dictionary<int, string> Regions { get { return RegionsDataGetter(); } }
         public Dictionary<int, List<string>> Divisions { get { return DivisionsDataGetter(); } }

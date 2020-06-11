@@ -9,9 +9,25 @@
     <ScrollView x:Name="layout">
 
         <StackLayout>
-            <Button x:Name="CreateProfileBtn" Text="Create Profile" Pressed="CreateProfileBtn_Pressed"/>
-            <ListView x:Name="ListViewProfiles">
-            </ListView>
+            <Button x:Name="CreateProfileBtn" 
+                    Text="Create Profile" 
+                    Command="{Binding CreateProfileCommandBtn}"/>
+
+
+            <Button x:Name="RefreshBtn" 
+                    Text="Refresh" 
+                    Command="{Binding RefreshCommandBtn}"/>
+
+            <RefreshView 
+                IsRefreshing="{Binding IsRefreshing}"
+                Command="{Binding RefreshCommandBtn}">
+                
+                <CollectionView 
+                    x:Name="ListViewProfiles"
+                    ItemsSource="{Binding ListOfProfStrings}"
+                    SelectedItem="{Binding SelectedProfile}" SelectionMode="Single"/>
+                
+            </RefreshView>
         </StackLayout>
     </ScrollView>
 

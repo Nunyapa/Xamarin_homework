@@ -17,16 +17,9 @@ namespace GIBDD
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageModelView();
             Title = "Choose profile";
-            
-            ListViewProfiles.ItemsSource = new string[] { "one", "two", "three"};
-        }
-
-        private async void CreateProfileBtn_Pressed(object sender, EventArgs e)
-        {
-            
-            await Navigation.PushModalAsync(new NavigationPage(new CreateProfilePage()));
-            
+            //ListViewProfiles.ItemsSource = new string[] { "one", "two", "three"};
         }
     }
 }

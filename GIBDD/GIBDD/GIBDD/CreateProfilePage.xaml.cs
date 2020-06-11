@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace GIBDD
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateProfilePage : ContentPage
     {
@@ -19,5 +20,8 @@ namespace GIBDD
             Title = "Create profile";
             BindingContext = new SubsectionPickerModelView();   
         }
+
+
+
     }
 }

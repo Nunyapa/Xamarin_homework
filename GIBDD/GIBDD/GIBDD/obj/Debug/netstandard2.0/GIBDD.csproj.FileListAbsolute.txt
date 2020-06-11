@@ -14,3 +14,5 @@ D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\.xaml.g.c
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\AppealPage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\ProfilePage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\CreateProfilePage.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.csproj.CoreCompileInputs.cache
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\XamlC.stamp

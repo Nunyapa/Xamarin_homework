@@ -24,6 +24,7 @@ namespace GIBDD
         private ProfileValidator profileValidator = new ProfileValidator();
         private Dictionary<int, List<string>> _divDict = new Dictionary<int, List<string>>();
 
+
         public SubsectionPickerModelView() 
         {
             Regions = fd.Regions.Values.ToList<string>();
@@ -40,49 +41,39 @@ namespace GIBDD
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        public event EventHandler<ModalPoppedEventArgs> onPopped;
+        protected void OnPoppedChanged(Page page)
+        {
+            onPopped?.Invoke(this, new ModalPoppedEventArgs(page));
+        }
+
+
+        static public event EventHandler OnSave;
+
         async void SaveBtnHandler()
         {
-            Profile newProfile = new Profile();
-            if (IsHuman) {
-                newProfile = new Profile
-                {
-                    TypeOfProfile = IsHuman,
-                    Sername = SerName,
-                    Name = Name,
-                    MiddleName = MiddleName,
-                    Email = Email,
-                    Phone = PhoneNumber,
-                    SelectedRegion = SelectedRegion,
-                    SelectedDiv = SelectedDiv,
-                    SelectedRegionOfIncident = SelectedRegionOfIncident
-                };
-            }
-            else
+            Profile newProfile = new Profile()
             {
-                newProfile = new OrganizationProfile
-                {
-                    TypeOfProfile = IsHuman,
-                    Sername = SerName,
-                    Name = Name,
-                    MiddleName = MiddleName,
-                    Email = Email,
-                    Phone = PhoneNumber,
-                    SelectedRegion = SelectedRegion,
-                    SelectedDiv = SelectedDiv,
-                    SelectedRegionOfIncident = SelectedRegionOfIncident,
-                    OrgOptionalInformation = OrgOptionalInformation,
-                    OrgName = OrgName,
-                    OutNumber = OutNumber,
-                    RegistrOrgDate = RegistrOrgDate,
-                    NumberLetter = NumberLetter
-                };
-            }
+                TypeOfProfile = IsHuman,
+                Sername = SerName,
+                Name = Name,
+                MiddleName = MiddleName,
+                Email = Email,
+                Phone = PhoneNumber,
+                SelectedRegion = SelectedRegion,
+                SelectedDiv = SelectedDiv,
+                SelectedRegionOfIncident = SelectedRegionOfIncident,
+                OrgOptionalInformation = OrgOptionalInformation,
+                OrgName = OrgName,
+                OutNumber = OutNumber,
+                RegistrOrgDate = RegistrOrgDate,
+                NumberLetter = NumberLetter
+            };
             //Validation
             if (profileValidator.Validate(newProfile).IsValid)
             {
-                Console.WriteLine("Validated");
-                //Write to db
-                await Application.Current.MainPage.Navigation.PopModalAsync();
+                App.Database?.AddRecord(newProfile);
+                await Application.Current.MainPage.Navigation.PopModalAsync(true);
             }
             else 
             {
@@ -228,6 +219,14 @@ namespace GIBDD
             get { return _isHuman; }
             set 
             {
+                if (value == true)
+                {
+                    OrgOptionalInformation = "";
+                    OrgName = "";
+                    OutNumber = "";
+                    RegistrOrgDate = DateTime.Today;
+                    NumberLetter = "";
+                }
                 _isHuman = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(IsOrganization));

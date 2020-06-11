@@ -15,28 +15,33 @@ namespace GIBDD
         public string SelectedDiv { get; set; }
         public string Phone { get; set; }
         public string SelectedRegionOfIncident { get; set; }
-
-    }
-
-    class OrganizationProfile : Profile
-    {
         public string OrgName { get; set; }
         public string OrgOptionalInformation { get; set; }
         public string OutNumber { get; set; }
         public DateTime RegistrOrgDate { get; set; }
         public string NumberLetter { get; set; }
 
-        //public OrganizationProfile(Profile profile) 
-        //{
-
-        //    this.Sername = profile.Sername;
-        //    this.Name = profile.Name;
-        //    this.MiddleName = profile.MiddleName;
-        //    this.Email = profile.Email;
-        //    this.Phone = profile.Phone;
-        //    this.Ser = profile.Ser;
-        //    this.Se = profile.Se;
-        //    this.Ie = profile.Ie;
-        //}
     }
+
+    //class OrganizationProfile : Profile
+    //{
+    //    public string OrgName { get; set; }
+    //    public string OrgOptionalInformation { get; set; }
+    //    public string OutNumber { get; set; }
+    //    public DateTime RegistrOrgDate { get; set; }
+    //    public string NumberLetter { get; set; }
+
+    //    //public OrganizationProfile(Profile profile) 
+    //    //{
+
+    //    //    this.Sername = profile.Sername;
+    //    //    this.Name = profile.Name;
+    //    //    this.MiddleName = profile.MiddleName;
+    //    //    this.Email = profile.Email;
+    //    //    this.Phone = profile.Phone;
+    //    //    this.Ser = profile.Ser;
+    //    //    this.Se = profile.Se;
+    //    //    this.Ie = profile.Ie;
+    //    //}
+    //}
 }
