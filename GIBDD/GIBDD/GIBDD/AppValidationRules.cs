@@ -7,7 +7,7 @@ using Xamarin.Forms.Internals;
 
 namespace GIBDD
 {
-    class ProfileValidator : AbstractValidator<Profile>
+    class ProfileValidator : AbstractValidator<ProfilesTable>
     {
 
         public ProfileValidator()

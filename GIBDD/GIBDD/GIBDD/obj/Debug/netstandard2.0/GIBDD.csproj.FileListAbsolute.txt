@@ -1,6 +1,5 @@
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.csprojAssemblyReference.cache
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.AssemblyInfoInputs.cache
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.AssemblyInfo.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\bin\Debug\netstandard2.0\GIBDD.deps.json
@@ -11,8 +10,9 @@ D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.dll
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\ref\GIBDD.dll
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.pdb
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\.xaml.g.cs
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\AppealPage.xaml.g.cs
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\ProfilePage.xaml.g.cs
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\CreateProfilePage.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\AppealPage.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\CreateProfilePage.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.csproj.CoreCompileInputs.cache
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\XamlC.stamp

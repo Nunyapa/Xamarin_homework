@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:gibdd="clr-namespace:GIBDD"
+             mc:Ignorable="d"
+             x:Class="GIBDD.MainPage"
+             x:Name="MainContentPage">
+    <StackLayout x:Name="layout">
+        <Label Margin="5,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Choosen profile: "/>
+                    <Span Text=" "/>
+                    <Span Text="{Binding DisplayCurProfile}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Button x:Name="CreateProfileBtn" 
+                Text="Create Profile" 
+                Command="{Binding CreateProfileCommandBtn}"
+                Margin="5,0"/>
+        <Button x:Name="ChangeProfileBtn" 
+                Text="Update profile" 
+                Command="{Binding UpdateProfileCommandBtn}"
+                Margin="5,0"/>
+        <Label Text="Choose profile:"
+                FontAttributes="Bold" 
+                FontSize="22"
+                Margin="10"/>
+        <RefreshView
+            IsRefreshing="{Binding IsRefreshing}"
+            Command="{Binding RefreshCommandBtn}"
+            Margin="10">
+            <CollectionView 
+                    x:Name="ListViewProfiles"
+                    ItemsSource="{Binding ListOfProfiles}"
+                    SelectedItem="{Binding Profile}" 
+                    SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                            RowSpacing="5">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label  
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3" 
+                                FontAttributes="Bold" 
+                                FontSize="16">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Sername}"/>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding Name}"/>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding MiddleName}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="Место инцидента:"
+                                FontSize="12" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding SelectedRegionOfIncident}"
+                                FontAttributes="Italic"
+                                FontSize="12" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="Подразделение:"
+                                FontSize="12" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding SelectedDiv}"
+                                FontAttributes="Italic"
+                                FontSize="12"/>
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Text="Регион подразделения:"
+                                FontSize="12" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding SelectedRegion}"
+                                FontAttributes="Italic"
+                                FontSize="12"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        
+        <Button 
+            Text="Appeal"
+            Command="{Binding UpdateProfileCommandBtn}"/>
+    </StackLayout>
+
+</ContentPage>
