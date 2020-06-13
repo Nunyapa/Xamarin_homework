@@ -9,11 +9,11 @@
         <StackLayout>
             <Editor
                 Text="{Binding EditorText}" 
-                VerticalOptions="FillAndExpand"/>
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"/>
             <Button
                 Text="Attach Photo"
-                Command="{Binding CommandBtn}"/>
-            <Grid/>
+                Command="{Binding GoToAttachScreen}"/>
             <Button
                 Text="Send appeal"/>
         </StackLayout>

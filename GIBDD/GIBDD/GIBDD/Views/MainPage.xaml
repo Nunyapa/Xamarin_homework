@@ -114,7 +114,7 @@
         
         <Button 
             Text="Appeal"
-            Command="{Binding UpdateProfileCommandBtn}"/>
+            Command="{Binding AppealCommandBtn}"/>
     </StackLayout>
 
 </ContentPage>

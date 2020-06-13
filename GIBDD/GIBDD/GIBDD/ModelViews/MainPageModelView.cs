@@ -13,6 +13,7 @@ namespace GIBDD
         public Command CreateProfileCommandBtn { get; set; }
         public Command RefreshCommandBtn { get; set; }
         public Command UpdateProfileCommandBtn { get; set; }
+        public Command AppealCommandBtn { get; set; }
 
 
         public MainPageModelView()
@@ -22,11 +23,11 @@ namespace GIBDD
             CreateProfileCommandBtn = new Command(() => CreateProfileBtn());
             RefreshCommandBtn = new Command(OnRefresh);
             UpdateProfileCommandBtn = new Command(() => UpdateProfileCommand(Profile), () => IsUpdatable);
-            UpdateProfileCommandBtn = new Command(UpdateProfileBtnHandler);
+            AppealCommandBtn = new Command(AppealBtnHandler);
 
         }
 
-        private void UpdateProfileBtnHandler(object obj)
+        private void AppealBtnHandler()
         {
             Application.Current.MainPage.Navigation.PushAsync(new AppealPage());
         }

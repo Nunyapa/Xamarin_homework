@@ -20,6 +20,8 @@ namespace GIBDD
             }
         }
 
+        static public IPhotoPlatform platform;
+
         public App()
         {
             InitializeComponent();

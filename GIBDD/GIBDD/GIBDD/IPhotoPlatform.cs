@@ -6,8 +6,9 @@ namespace GIBDD
 {
     public interface IPhotoPlatform
     {
-        void takePhoto();
-        bool cameraIsAvaliable();
-        void choosePhoto();
+        void TakePhoto();
+        bool IsCameraAvaliable();
+        void ChoosePhoto();
+        Action<byte[]> TakePhotoCallBack { get; set;}
     }
 }
