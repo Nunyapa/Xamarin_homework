@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              mc:Ignorable="d"
-             x:Class="GIBDD.Views.PhotoAttachPage">
+             x:Class="GIBDD.Views.PhotoAttachPage"
+             x:Name="PhotoAttachContentPage">
     <ContentPage.Content>
         <StackLayout>
             <Button
@@ -13,29 +15,26 @@
             <Button
                 Text="Choose Photo"
                 Command="{Binding ChoosePhotoCommandBtn}"/>
-            <Button
-                Text="Look"
-                Command="{Binding GoToImageViewer}"/>
+            <flv:FlowListView 
+                RowHeight="200"
+                FlowColumnCount="3" 
+                HasUnevenRows="false"
+	            FlowItemTappedCommand="{Binding GoToImageViewer}" 
+                FlowLastTappedItem="{Binding ChoosenImage}"
+	            FlowItemsSource="{Binding TakenImages}" >
 
-            <ListView
-                ItemsSource="{Binding TakenImages}"
-                SelectedItem="{Binding TakenImage}"
-                VerticalOptions="Start"
-                HorizontalOptions="Start"
-                >
-                <ListView.ItemTemplate>
+                <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <Image 
-                                    Source="{Binding imageSource}"
-                                    Aspect="AspectFit">
-                                </Image>
-                            </ViewCell.View>
-                        </ViewCell>
+                        <Image
+                            Aspect="AspectFit"
+                            Source="{Binding imageSource}"/>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </flv:FlowListView.FlowColumnTemplate>
+
+            </flv:FlowListView>
+            <Button
+                Text="Appeal"
+                Command="{Binding AppealBtn}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

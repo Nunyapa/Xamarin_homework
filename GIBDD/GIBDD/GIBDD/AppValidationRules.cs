@@ -12,6 +12,8 @@ namespace GIBDD
 
         public ProfileValidator()
         {
+
+            RuleFor(x => x.TypeOfProfile).NotNull();
             RuleFor(x => x.Name).NotNull();
             RuleFor(x => x.Name).Must(name => name.All(c => char.IsLetter(c) || c == '-')).WithMessage("Name should contain letters only");
             RuleFor(x => x.Sername).NotNull();

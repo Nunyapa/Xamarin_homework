@@ -492,3 +492,14 @@ D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\flata\DB88E0E
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\flata\E7E565A9287B8CEA.flata
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\flata\6F6DBB3B037BB69A.flata
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\flata\AC5488BAD55D3D01.flata
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\DLToolkit.Forms.Controls.FlowListView.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Collections.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Diagnostics.Debug.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Linq.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.ObjectModel.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Reflection.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Reflection.Extensions.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Resources.ResourceManager.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Runtime.Extensions.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Threading.dll
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD.Android\obj\Debug\90\android\assets\System.Threading.Tasks.dll

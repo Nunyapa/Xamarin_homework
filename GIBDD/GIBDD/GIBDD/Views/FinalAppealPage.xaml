@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             mc:Ignorable="d"
+             x:Class="GIBDD.Views.FinalAppealPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="10">
+                <Label  
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"  
+                        FontAttributes="Italic"
+                        FontSize="16"
+                        Text="{Binding ProfileType}"/>
+                <Label  
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3" 
+                        FontAttributes="Bold" 
+                        FontSize="16"
+                        Text="{Binding FullName}"/>
+
+                <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Место инцидента:"
+                        FontSize="12" />
+                <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding SelectedRegionOfIncident}"
+                        FontAttributes="Italic"
+                        FontSize="12" />
+                <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Text="Подразделение:"
+                        FontSize="12" />
+                <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding SelectedDiv}"
+                        FontAttributes="Italic"
+                        FontSize="12"/>
+
+                <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Text="Регион подразделения:"
+                        FontSize="12" />
+                <Label
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding SelectedRegion}"
+                        FontAttributes="Italic"
+                        FontSize="12"/>
+                <Label
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Text="Название орг.:"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding OrgName}"
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Text="Орг. Информация:"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding OrgOptionalInformation}"
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Text="Исходящий №:"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding OutNumber}"
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="8"
+                        Grid.Column="0"
+                        Text="Дата регистрации:"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding RegistrOrgDate}"
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="9"
+                        Grid.Column="0"
+                        Text="Номер з.письма:"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+                <Label
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding NumberLetter}"
+                        FontAttributes="Italic"
+                        FontSize="12"
+                        IsVisible="{Binding IsOrg}"/>
+            </Grid>
+            <flv:FlowListView 
+                RowHeight="200"
+                FlowColumnCount="3" 
+                HasUnevenRows="false"
+	            FlowItemTappedCommand="{Binding GoToImageViewer}" 
+                FlowLastTappedItem="{Binding ChoosenImage}"
+	            FlowItemsSource="{Binding TakenImages}" >
+
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <Image
+                            Aspect="AspectFit"
+                            Source="{Binding imageSource}"/>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+            <Button
+                Text="Send appeal"
+                Command="{Binding SendAppeal}"/>
+ 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

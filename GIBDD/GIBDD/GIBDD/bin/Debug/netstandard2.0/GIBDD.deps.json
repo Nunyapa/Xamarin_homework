@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "GIBDD/1.0.0": {
         "dependencies": {
+          "DLToolkit.Forms.Controls.FlowListView": "2.0.11",
           "FluentValidation": "8.6.2",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
@@ -19,6 +20,17 @@
         },
         "runtime": {
           "GIBDD.dll": {}
+        }
+      },
+      "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+        "dependencies": {
+          "Xamarin.Forms": "4.4.0.991265"
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "FluentValidation/8.6.2": {
@@ -222,6 +234,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n/TIbW3a7q/h5wA5vt8VfkN3eecJN8nMlPVu3NS7hvFODg0YqFHXDgbX1O/a9agcuk5Km6DZqJqpxpcYRS9sOQ==",
+      "path": "dltoolkit.forms.controls.flowlistview/2.0.11",
+      "hashPath": "dltoolkit.forms.controls.flowlistview.2.0.11.nupkg.sha512"
     },
     "FluentValidation/8.6.2": {
       "type": "package",

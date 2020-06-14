@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "GIBDD.Android.dll" comes first in this list. */
 		"GIBDD.Android.dll",
+		"DLToolkit.Forms.Controls.FlowListView.dll",
 		"FluentValidation.dll",
 		"FormsViewGroup.dll",
 		"GIBDD.dll",

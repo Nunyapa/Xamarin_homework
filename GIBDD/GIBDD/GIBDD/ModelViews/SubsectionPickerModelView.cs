@@ -60,7 +60,7 @@ namespace GIBDD
             bool answer = await Application.Current.MainPage.DisplayAlert("Delete", warnMessage, "OK", "NO");
             if (answer)
             {
-                App.Database.DeleteRecord(ProfileToUpdate.Id);
+                App.Database.DeleteRecordFromProfilesTable(ProfileToUpdate.Id);
                 await Application.Current.MainPage.Navigation.PopModalAsync(true);
             }
 
@@ -119,7 +119,7 @@ namespace GIBDD
                 switch (mode)
                 {
                     case SAVE_MODE:
-                        App.Database?.AddRecord(newProfile);
+                        App.Database?.AddRecordToProfilesTable(newProfile);
                         break;
                     case UPDATE_MODE:
                         newProfile.Id = ProfileToUpdate.Id;
@@ -141,8 +141,12 @@ namespace GIBDD
 
         async void CancelBtnHandler()
         {
-            string warnMessage = "You going to lose all infromation in the fields";
-            bool answer = await Application.Current.MainPage.DisplayAlert("Are you sure?", warnMessage, "leave", "stay");
+            string warnMessage;
+            if (mode == SAVE_MODE)
+                warnMessage = "You will lose all infromation";
+            else
+                warnMessage = "Do not accept changes?";
+            bool answer = await Application.Current.MainPage.DisplayAlert("Warning", warnMessage, "OK", "STAY");
             if (answer)
                 await Application.Current.MainPage.Navigation.PopModalAsync();
         }
@@ -151,16 +155,10 @@ namespace GIBDD
         public string BtnTitle
         {
             get {
-                switch (mode)
-                {
-                    case SAVE_MODE:
-                        return "Save";
-                        break;
-                    case UPDATE_MODE:
-                        return "Update";
-                        break;
-                }
-                return "UNCOVERED MODE";
+                if (mode == SAVE_MODE)
+                    return "Save";
+                else
+                    return "Update";
             }
         }
 
@@ -293,8 +291,30 @@ namespace GIBDD
             }
         }
 
+        public string _currenttype;
+        public string CurrentType
+        {
+            get { return _currenttype; }
+            set
+            {
+                if (_currenttype != value)
+                {
+                    _currenttype = value;
+                    if (value == "0")
+                        IsHuman = true;
+                    else if (value == "1")
+                        IsHuman = false;
+                }
+            }
+        }
 
-        private bool _isHuman = true;
+        public List<string> _typesofprofile = new List<string>() { "Гражданин", "Организация" };
+        public List<string> TypesOfProfile
+        {
+            get { return _typesofprofile; }
+        }
+
+        private bool _isHuman;
         public bool IsHuman
         {
             get { return _isHuman; }

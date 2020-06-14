@@ -9,10 +9,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="10">
-                <Label Text="Choose your hero"/>
-                
-                <Switch IsToggled="{Binding IsHuman}" 
-                        Style="{StaticResource switchStyle}"/>
+                <Picker
+                    Title="Гражданин/Организация"
+                    ItemsSource="{Binding TypesOfProfile}"
+                    SelectedIndex="{Binding CurrentType}"/>
 
                 <Entry x:Name="FEntry" 
                        Placeholder="Введите фамилию" 
@@ -21,7 +21,7 @@
                     <Entry.Behaviors>
                         <local:ImportantEntryBehavior/>
                     </Entry.Behaviors>
-                </Entry>
+                </Entry> 
 
                 <Entry x:Name="IEntry" 
                        Placeholder="Введите имя" 
@@ -58,13 +58,12 @@
                 <DatePicker x:Name="RegistrOrgDate"
                             Date="{Binding RegistrOrgDate}"
                             IsVisible="{Binding IsOrganization}"/>
-                
+
                 <Entry x:Name="NumberLetterEntry" 
                        Text="{Binding NumberLetter}"
                        Placeholder="Введите номер заказного письма" 
                        IsVisible="{Binding IsOrganization}"
                        Style="{StaticResource entryStyle}"/>
-
 
                 <Entry x:Name="EmailEntry" 
                        Placeholder="Введите email"
@@ -84,17 +83,23 @@
                     </Entry.Behaviors>
                 </Entry>
                 
-                <Picker x:Name="SubsectionRegionPicker"
-                        ItemsSource="{Binding Regions}"
-                        SelectedItem="{Binding SelectedRegion}"/>
+                <Picker
+                    Title="Регионы подразделения"
+                    x:Name="SubsectionRegionPicker"
+                    ItemsSource="{Binding Regions}"
+                    SelectedItem="{Binding SelectedRegion}"/>
                 
-                <Picker x:Name="SubsectionPicker"
-                        ItemsSource="{Binding SelectedDivisions}"
-                        SelectedItem="{Binding SelectedDiv}"/>
+                <Picker 
+                    Title="Подразделения"
+                    x:Name="SubsectionPicker"
+                    ItemsSource="{Binding SelectedDivisions}"
+                    SelectedItem="{Binding SelectedDiv}"/>
                 
-                <Picker x:Name="IncidentRegionPicker"
-                        ItemsSource="{Binding RegionsOfIncident}"
-                        SelectedItem="{Binding SelectedRegionOfIncident}"/>
+                <Picker 
+                    Title="Регионы инцидента"
+                    x:Name="IncidentRegionPicker"
+                    ItemsSource="{Binding RegionsOfIncident}"
+                    SelectedItem="{Binding SelectedRegionOfIncident}"/>
                 
                 <Button x:Name="ChangeBtn" 
                         Text="{Binding BtnTitle}" 

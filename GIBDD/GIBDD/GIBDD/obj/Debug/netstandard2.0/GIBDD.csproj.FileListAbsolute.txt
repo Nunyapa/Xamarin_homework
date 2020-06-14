@@ -14,7 +14,8 @@ D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\App
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\CreateProfilePage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.csproj.CoreCompileInputs.cache
-D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\PhotoAttachPage.xaml.g.cs
 D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\ImageViewer.xaml.g.cs
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\GIBDD.csproj.CoreCompileInputs.cache
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Homework\MOBILKY\Xamarin\GIBDD\GIBDD\GIBDD\obj\Debug\netstandard2.0\Views\FinalAppealPage.xaml.g.cs

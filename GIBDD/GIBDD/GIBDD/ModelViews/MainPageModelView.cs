@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GIBDD.ModelViews;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
@@ -14,23 +15,8 @@ namespace GIBDD
         public Command RefreshCommandBtn { get; set; }
         public Command UpdateProfileCommandBtn { get; set; }
         public Command AppealCommandBtn { get; set; }
+        private AppealModelView AppealModelView;
 
-
-        public MainPageModelView()
-        {
-            getListOfProfiles();
-            App.Database.OnChangeRecord += EventOnChangeRecord;
-            CreateProfileCommandBtn = new Command(() => CreateProfileBtn());
-            RefreshCommandBtn = new Command(OnRefresh);
-            UpdateProfileCommandBtn = new Command(() => UpdateProfileCommand(Profile), () => IsUpdatable);
-            AppealCommandBtn = new Command(AppealBtnHandler);
-
-        }
-
-        private void AppealBtnHandler()
-        {
-            Application.Current.MainPage.Navigation.PushAsync(new AppealPage());
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -39,14 +25,49 @@ namespace GIBDD
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        public MainPageModelView()
+        {
+
+            getListOfProfiles();
+            AppealModelView = new AppealModelView();
+            App.Database.OnChangeProfilesTableRecord += EventOnChangeRecord;
+            AppealModelView.SendAppealEvent += AppealSended;
+            CreateProfileCommandBtn = new Command(() => CreateProfileBtn());
+            RefreshCommandBtn = new Command(OnRefresh);
+            UpdateProfileCommandBtn = new Command(() => UpdateProfileCommand(Profile), IsUpdatable);
+            AppealCommandBtn = new Command(AppealBtnHandler, IsAppealable);
+        }
+
+        private bool IsAppealable()
+        {
+            return Profile != null;
+        }
+
+        private bool IsUpdatable()
+        {
+            return Profile != null;
+        }
+
+        private void AppealBtnHandler()
+        {
+            AppealModelView.CurrentProfile = Profile;
+            Application.Current.MainPage.Navigation.PushAsync(new AppealPage(AppealModelView));
+        }
+
+        private void AppealSended(Object sender, EventArgs e)
+        {
+            AppealModelView = new AppealModelView();
+            AppealModelView.SendAppealEvent += AppealSended;
+        }
+
         private void EventOnChangeRecord(Object sender, EventArgs e)
         {
             getListOfProfiles();
         }
 
-        private void CreateProfileBtn()
+        private async void CreateProfileBtn()
         {
-            Application.Current.MainPage.Navigation.PushModalAsync(new CreateProfilePage());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new CreateProfilePage());
             Profile = null;
         }
 
@@ -59,7 +80,7 @@ namespace GIBDD
 
         async void getListOfProfiles()
         {
-            _listofprofiles = await App.Database?.GetAllRecords();
+            _listofprofiles = await App.Database?.GetAllRecordsFromProfilesTable();
             OnPropertyChanged("ListOfProfiles");
         }
 
@@ -97,23 +118,9 @@ namespace GIBDD
                 {
                     _profile = value;
                 }
-                if (value == null)
-                    IsUpdatable = false;
-                else
-                    IsUpdatable = true;
+                UpdateProfileCommandBtn.ChangeCanExecute();
+                AppealCommandBtn.ChangeCanExecute();
                 OnPropertyChanged("DisplayCurProfile");
-            }
-        }
-
-        private bool _isUpdatable;
-        public bool IsUpdatable
-        {
-            get {return _isUpdatable; }
-            set
-            {
-                _isUpdatable = value;
-                if (value != false)
-                    UpdateProfileCommandBtn.ChangeCanExecute();
             }
         }
 

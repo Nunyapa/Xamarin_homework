@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6482"
+        },
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        }
+      },
       "FluentValidation/8.6.2": {
         "type": "package",
         "dependencies": {
@@ -310,6 +322,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DLToolkit.Forms.Controls.FlowListView": "2.0.11",
           "FluentValidation": "8.6.2",
           "Newtonsoft.Json": "12.0.3",
           "System.Text.Json": "4.7.2",
@@ -326,6 +339,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6482"
+        },
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        }
+      },
       "FluentValidation/8.6.2": {
         "type": "package",
         "dependencies": {
@@ -634,6 +659,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DLToolkit.Forms.Controls.FlowListView": "2.0.11",
           "FluentValidation": "8.6.2",
           "Newtonsoft.Json": "12.0.3",
           "System.Text.Json": "4.7.2",
@@ -650,6 +676,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6482"
+        },
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        }
+      },
       "FluentValidation/8.6.2": {
         "type": "package",
         "dependencies": {
@@ -958,6 +996,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DLToolkit.Forms.Controls.FlowListView": "2.0.11",
           "FluentValidation": "8.6.2",
           "Newtonsoft.Json": "12.0.3",
           "System.Text.Json": "4.7.2",
@@ -974,6 +1013,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6482"
+        },
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll": {}
+        }
+      },
       "FluentValidation/8.6.2": {
         "type": "package",
         "dependencies": {
@@ -1282,6 +1333,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DLToolkit.Forms.Controls.FlowListView": "2.0.11",
           "FluentValidation": "8.6.2",
           "Newtonsoft.Json": "12.0.3",
           "System.Text.Json": "4.7.2",
@@ -1299,6 +1351,19 @@
     }
   },
   "libraries": {
+    "DLToolkit.Forms.Controls.FlowListView/2.0.11": {
+      "sha512": "n/TIbW3a7q/h5wA5vt8VfkN3eecJN8nMlPVu3NS7hvFODg0YqFHXDgbX1O/a9agcuk5Km6DZqJqpxpcYRS9sOQ==",
+      "type": "package",
+      "path": "dltoolkit.forms.controls.flowlistview/2.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dltoolkit.forms.controls.flowlistview.2.0.11.nupkg.sha512",
+        "dltoolkit.forms.controls.flowlistview.nuspec",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+netstandard1.0/DLToolkit.Forms.Controls.FlowListView.xml"
+      ]
+    },
     "FluentValidation/8.6.2": {
       "sha512": "N2vz+f6pAX9AI19hu83U2LJjjc/ETzWGlICVanu3DIG76QhzEu3PR/CQSFBX69PRuBTivrW4jhBzeV7dXIfqyw==",
       "type": "package",

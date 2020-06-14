@@ -22,7 +22,6 @@ namespace GIBDD.Droid
         private const int ChoosePhotoPermissionRequest = 1001;
         private const int ChoosePhotoRequest = 2001;
         private const int SavePhotoPermissionRequest = 1002;
-        private const int SavePhotoRequest = 2002;
         private byte[] image;
 
         public Action<byte[]> TakePhotoCallBack { get; set; }
@@ -37,9 +36,7 @@ namespace GIBDD.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            var App = new App();
-            App.platform = this;
-
+            var App = new App(this);
             LoadApplication(App);
         }
 
@@ -126,7 +123,7 @@ namespace GIBDD.Droid
                 if (bitmap != null)
                 {
                     var stream = new MemoryStream();
-                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 0, stream);
+                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 80, stream);
                     image = stream.ToArray();
                     TakePhotoCallBack(image);
                     SaveImage();
@@ -139,7 +136,7 @@ namespace GIBDD.Droid
                 if (bitmap != null)
                 {
                     var stream = new MemoryStream();
-                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 0, stream);
+                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 80, stream);
                     image = stream.ToArray();
                     TakePhotoCallBack(image);
                 }

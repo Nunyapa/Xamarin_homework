@@ -13,18 +13,11 @@ namespace GIBDD
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppealPage : ContentPage
     {
-        public AppealPage()
+        public AppealPage(AppealModelView context)
         {
             InitializeComponent();
             Title = "Appeal";
-            BindingContext = new AppealModelView();
-        }
-
-        public AppealPage(ProfilesTable prof)
-        {
-            InitializeComponent();
-            Title = "Appeal";
-            BindingContext = new AppealModelView(prof);
+            BindingContext = context;
         }
     }
 }

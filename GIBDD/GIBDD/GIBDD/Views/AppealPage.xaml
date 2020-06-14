@@ -7,15 +7,46 @@
              x:Class="GIBDD.AppealPage">
     <ContentPage.Content>
         <StackLayout>
+            <Label 
+                Margin="10"
+                FontSize="16"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Choosen profile: "/>
+                        <Span Text=" "/>
+                        <Span Text="{Binding DisplayCurProfile}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
             <Editor
-                Text="{Binding EditorText}" 
-                VerticalOptions="FillAndExpand" 
-                HorizontalOptions="FillAndExpand"/>
+                Margin="10"
+                Placeholder="Введите текст обращения"
+                Text="{Binding EditorText}"
+                HeightRequest="200"/>
+            <Label
+                Margin="10"
+                Text="Last: "
+                FontSize="16"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"/>
+            <ListView
+                Margin="10"
+                ItemsSource="{Binding ListOfAppeals}"
+                SelectedItem="{Binding EditorTextAppealsTable}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell
+                            TextColor="DimGray"
+                            Text="{Binding AppealText}">
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <Button
                 Text="Attach Photo"
                 Command="{Binding GoToAttachScreen}"/>
-            <Button
-                Text="Send appeal"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

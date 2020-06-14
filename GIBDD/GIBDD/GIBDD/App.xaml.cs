@@ -22,8 +22,9 @@ namespace GIBDD
 
         static public IPhotoPlatform platform;
 
-        public App()
+        public App(IPhotoPlatform CurrentPlatform)
         {
+            platform = CurrentPlatform;
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
         }

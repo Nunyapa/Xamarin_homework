@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jdZZ3YXE43gK7/qP1kUVfijBTxgIgLax2bvuyju50amJtIKU6zm1hjT9vA/3xzIbZVv3U0xfFmly1LSEWTWv5A==",
+  "dgSpecHash": "g9cSgy/k/tZe1dYPP+o0h3TPEOyPDm404Mj6ZkLIJClOsuGpZzA33yxlZb9MGaOPYm6XFdemOiSw0/JhQK7aCA==",
   "success": true,
   "projectFilePath": "D:\\Homework\\MOBILKY\\Xamarin\\GIBDD\\GIBDD\\GIBDD\\GIBDD.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\dltoolkit.forms.controls.flowlistview\\2.0.11\\dltoolkit.forms.controls.flowlistview.2.0.11.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
