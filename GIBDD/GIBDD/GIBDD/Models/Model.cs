@@ -9,10 +9,10 @@ using SQLite;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace GIBDD
 {
-    [Table("Profiles")]
     public class ProfilesTable
     {
         [PrimaryKey, AutoIncrement, Unique]
@@ -37,7 +37,7 @@ namespace GIBDD
         public string SelectedRegionOfIncident { get; set; }
         [MaxLength(255), NotNull]
         public string OrgName { get; set; } = "";
-        [MaxLength(255), NotNull]
+        [MaxLength(400), NotNull]
         public string OrgOptionalInformation { get; set; } = "";
         [MaxLength(40), NotNull]
         public string OutNumber { get; set; } = "";
@@ -46,7 +46,6 @@ namespace GIBDD
         public string NumberLetter { get; set; } = "";
     }
 
-    [Table("Appeals")]
     public class AppealsTable
     {
         [PrimaryKey, AutoIncrement, Unique, NotNull]
@@ -70,7 +69,8 @@ namespace GIBDD
 
         private void DbInit()
         {
-            db = new SQLiteAsyncConnection(dbPath);
+            if (db == null)
+                db = new SQLiteAsyncConnection(dbPath);
             db?.CreateTableAsync<ProfilesTable>();
             db?.CreateTableAsync<AppealsTable>();
         }
@@ -78,31 +78,41 @@ namespace GIBDD
 
         //APPEALS TABLE
 
-        public event EventHandler OnChangeAppealsTableRecord;
+        //public event EventHandler OnChangeAppealsTableRecord;
 
-        private void OnChangeRecordAppealsTableReaction()
-        {
-            OnChangeAppealsTableRecord?.Invoke(this, EventArgs.Empty);
-        }
+        //private void OnChangeRecordAppealsTableReaction()
+        //{
+        //    OnChangeAppealsTableRecord?.Invoke(this, EventArgs.Empty);
+        //}
 
         public async Task<List<AppealsTable>> GetAllRecordFromApppealsTable()
         {
-            if (db == null)
-                DbInit();
-            //var temp = db?.Table<AppealsTable>();
-            var response = await db?.QueryAsync<AppealsTable>("SELECT * FROM Appeals");
+            List<AppealsTable> response;
+            try
+            {
+                response = await db?.QueryAsync<AppealsTable>("SELECT * FROM AppealsTable ORDER BY Id DESC");
+                
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                response = new List<AppealsTable>();
+                Debug.WriteLine(e);
+            }
             return response;
         }
 
 
         public async void AddRecordToAppealsTable(AppealsTable appeal)
         {
-            var newRecord = new AppealsTable
+            try
             {
-                AppealText = appeal.AppealText
-            };
-            await db?.InsertAsync(newRecord);
-            OnChangeRecordAppealsTableReaction();
+                await db?.InsertAsync(appeal);
+                //OnChangeRecordAppealsTableReaction();
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
 
@@ -117,57 +127,70 @@ namespace GIBDD
 
         public async void AddRecordToProfilesTable(ProfilesTable profile)
         {
-            var newRecord = new ProfilesTable
+            try
             {
-                TypeOfProfile = profile.TypeOfProfile,
-                Sername = profile.Sername,
-                Name = profile.Name,
-                MiddleName = profile.MiddleName,
-                Email = profile.Email,
-                Phone = profile.Phone,
-                SelectedRegion = profile.SelectedRegion,
-                SelectedDiv = profile.SelectedDiv,
-                SelectedRegionOfIncident = profile.SelectedRegionOfIncident,
-                OrgName = profile.OrgName,
-                OrgOptionalInformation = profile.OrgOptionalInformation,
-                OutNumber = profile.OrgName,
-                RegistrOrgDate = profile.RegistrOrgDate,
-                NumberLetter = profile.NumberLetter
-            };
-            await db?.InsertAsync(newRecord);
-            OnChangeRecordProfilesTableReaction();
+                await db?.InsertAsync(profile);
+                OnChangeRecordProfilesTableReaction();
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
         public async void DeleteRecordFromProfilesTable(int id)
         {
-            if (db == null)
-                DbInit();
-            await db?.DeleteAsync<ProfilesTable>(id);
-            OnChangeRecordProfilesTableReaction();
+            try
+            {
+                await db?.DeleteAsync<ProfilesTable>(id);
+                OnChangeRecordProfilesTableReaction();
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
         public async void UpdateRecord(ProfilesTable profile)
         {
-            if (db == null)
-                DbInit();
-            await db?.UpdateAsync(profile);
-            OnChangeRecordProfilesTableReaction();
+            try
+            {
+                await db?.UpdateAsync(profile);
+                OnChangeRecordProfilesTableReaction();
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
         public async Task<ProfilesTable> GetRecordFromProfilesTable(int id)
         {
-            if (db == null)
-                DbInit();
-            var response = await db?.GetAsync<ProfilesTable>(id);
-            //var response = await db?.GetAsync<ProfilesTable>(id);
+            ProfilesTable response;
+            try
+            {
+                response = await db?.GetAsync<ProfilesTable>(id);
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                response = new ProfilesTable();
+                Debug.WriteLine(e);
+            }
             return response;
         }
 
         public async Task<List<ProfilesTable>> GetAllRecordsFromProfilesTable()
         {
-            if (db == null)
-                DbInit();
-            var response = await db?.QueryAsync<ProfilesTable>("SELECT * FROM Profiles");
+            List<ProfilesTable> response;
+            try
+            {
+                response = await db?.QueryAsync<ProfilesTable>("SELECT * FROM ProfilesTable ORDER BY Id DESC");
+            }
+            catch (SQLite.SQLiteException e)
+            {
+                response = new List<ProfilesTable>();
+                Debug.WriteLine(e);
+            }
             return response;
         }
     }

@@ -16,6 +16,7 @@ namespace GIBDD.Views
         public ImageViewer(AppealModelView context)
         {
             InitializeComponent();
+            Title = "Image Viewer";
             BindingContext = context;
         }
     }

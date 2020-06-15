@@ -70,9 +70,9 @@ namespace GIBDD
         {
             var curEntry = (Entry)sender;
             var isValid = IsPhoneNumber(curEntry.Text);
-            if (!isValid)
+            if (!isValid && curEntry.Text.Length != 0)
                 curEntry.BackgroundColor = Color.Salmon;
-            else
+            else if (isValid || curEntry.Text.Length == 0)
                 curEntry.BackgroundColor = Color.Default;
         }
 
@@ -81,5 +81,28 @@ namespace GIBDD
             return Regex.Match(number, @"^(\+[0-9]{9,11})$").Success;
         }
     }
-    
+
+    class MiddlenameEntryBehavior : Behavior<Entry>
+    {
+        protected override void OnAttachedTo(Entry bindable)
+        {
+            bindable.TextChanged += OnEntryTextChanged;
+        }
+
+        protected override void OnDetachingFrom(Entry bindable)
+        {
+            bindable.TextChanged -= OnEntryTextChanged;
+        }
+
+        private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var curEntry = (Entry)sender;
+            var isValid = curEntry.Text.All(x => char.IsLetter(x));
+            if (!isValid)
+                curEntry.BackgroundColor = Color.Salmon;
+            else
+                curEntry.BackgroundColor = Color.Default;
+        }
+    }
+
 }

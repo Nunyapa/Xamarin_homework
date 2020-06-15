@@ -13,70 +13,100 @@
                     Title="Гражданин/Организация"
                     ItemsSource="{Binding TypesOfProfile}"
                     SelectedIndex="{Binding CurrentType}"/>
-
+                <Label
+                    Text="Фамилия"/>
                 <Entry x:Name="FEntry" 
-                       Placeholder="Введите фамилию" 
+                       Placeholder="Иванов" 
                        Text="{Binding SerName}" 
                        Style="{StaticResource entryStyle}">
                     <Entry.Behaviors>
                         <local:ImportantEntryBehavior/>
                     </Entry.Behaviors>
-                </Entry> 
+                </Entry>
 
+                <Label
+                    Text="Имя"/>
                 <Entry x:Name="IEntry" 
-                       Placeholder="Введите имя" 
+                       Placeholder="Иван" 
                        Text="{Binding Name}" 
                        Style="{StaticResource entryStyle}">
                     <Entry.Behaviors>
                         <local:ImportantEntryBehavior/>
                     </Entry.Behaviors>
                 </Entry>
-                
-                <Entry x:Name="OEntry" 
-                       Placeholder="Введите отчество" 
-                       Text="{Binding MiddleName}" 
-                       Style="{StaticResource entryStyle}"/>
 
+                <Label
+                    Text="Отчество"/>
+                <Entry x:Name="OEntry" 
+                       Placeholder="Иванович" 
+                       Text="{Binding MiddleName}" 
+                       Style="{StaticResource entryStyle}">
+                    <Entry.Behaviors>
+                        <local:MiddlenameEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                
+                <Label
+                    Text="Название организации"
+                    IsVisible="{Binding IsOrganization}"/>
                 <Entry x:Name="OrgNameEntry"
                        Text="{Binding OrgName}"
-                       Placeholder="Название организации" 
+                       Placeholder="ООО Ноготочки" 
                        IsVisible="{Binding IsOrganization}"
                        Style="{StaticResource entryStyle}"/>
-                
-                <Entry x:Name="OrgOptionalInformationEntry" 
-                       Text="{Binding OrgOptionalInformation}"
-                       Placeholder="Дополнительная информация" 
-                       IsVisible="{Binding IsOrganization}"
-                       Style="{StaticResource entryStyle}"/>
-                
+                <Label
+                    Text="Дополнительная информация"
+                    IsVisible="{Binding IsOrganization}"/>
+                <Editor 
+                    
+                    HeightRequest="100"
+                    x:Name="OrgOptionalInformationEntry" 
+                    Text="{Binding OrgOptionalInformation}"
+                    Placeholder="Дополнительная информация"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding IsOrganization}"/>
+
+                <Label
+                    Text="Исходящий №"
+                    IsVisible="{Binding IsOrganization}"/>
                 <Entry x:Name="OutNumberEntry" 
                        Text="{Binding OutNumber}"
                        Placeholder="Исходящий №" 
                        IsVisible="{Binding IsOrganization}"
                        Style="{StaticResource entryStyle}"/>
-                
+                <Label
+                    Text="Дата регистрации организации" 
+                    IsVisible="{Binding IsOrganization}"/>
                 <DatePicker x:Name="RegistrOrgDate"
                             Date="{Binding RegistrOrgDate}"
                             IsVisible="{Binding IsOrganization}"/>
 
+                <Label
+                    Text="Номер заказного письма" 
+                    IsVisible="{Binding IsOrganization}"/>
                 <Entry x:Name="NumberLetterEntry" 
                        Text="{Binding NumberLetter}"
                        Placeholder="Введите номер заказного письма" 
                        IsVisible="{Binding IsOrganization}"
                        Style="{StaticResource entryStyle}"/>
 
+                <Label
+                    Text="Email"/>
                 <Entry x:Name="EmailEntry" 
-                       Placeholder="Введите email"
-                       Text="{Binding Email}"
-                       Style="{StaticResource entryStyle}">
+                    Placeholder="example@mail.ru"
+                    Text="{Binding Email}"
+                    Keyboard="Email"
+                    Style="{StaticResource entryStyle}">
                     <Entry.Behaviors> 
                         <local:EmailEntryBehavior/>
                     </Entry.Behaviors>
                 </Entry>
-                
+                <Label
+                    Text="Phone"/>
                 <Entry x:Name="PhoneEntry" 
-                       Placeholder="Введите телефон"
+                       Placeholder="+78005553535"
                        Text="{Binding PhoneNumber}"
+                       Keyboard="Telephone"
                        Style="{StaticResource entryStyle}">
                     <Entry.Behaviors>
                         <local:PhoneEntryBehavior/>

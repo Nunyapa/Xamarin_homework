@@ -113,6 +113,15 @@ namespace GIBDD
                 NumberLetter = NumberLetter
             };
 
+            if (IsHuman)
+            {
+                newProfile.OrgOptionalInformation = "";
+                newProfile.OrgName = "";
+                newProfile.OutNumber = "";
+                newProfile.RegistrOrgDate = DateTime.Today;
+                newProfile.NumberLetter = "";
+            }
+
             //Validation
             if (profileValidator.Validate(newProfile).IsValid)
             {
@@ -150,7 +159,6 @@ namespace GIBDD
             if (answer)
                 await Application.Current.MainPage.Navigation.PopModalAsync();
         }
-
 
         public string BtnTitle
         {
@@ -294,7 +302,14 @@ namespace GIBDD
         public string _currenttype;
         public string CurrentType
         {
-            get { return _currenttype; }
+            get 
+            {
+                if (IsHuman)
+                    return "0";
+                else if (!IsHuman)
+                    return "1";
+                return null;
+            }
             set
             {
                 if (_currenttype != value)
@@ -314,22 +329,13 @@ namespace GIBDD
             get { return _typesofprofile; }
         }
 
-        private bool _isHuman;
+        private bool _isHuman = false;
         public bool IsHuman
         {
             get { return _isHuman; }
             set 
             {
-                if (value == true)
-                {
-                    OrgOptionalInformation = "";
-                    OrgName = "";
-                    OutNumber = "";
-                    RegistrOrgDate = DateTime.Today;
-                    NumberLetter = "";
-                }
                 _isHuman = value;
-                OnPropertyChanged();
                 OnPropertyChanged(nameof(IsOrganization));
             }
 
@@ -344,7 +350,7 @@ namespace GIBDD
         }
 
         //OrgNameEntry
-        private string _orgname;
+        private string _orgname = "";
         public string OrgName
         {
             get { return _orgname; }
@@ -352,7 +358,7 @@ namespace GIBDD
         }
 
         //OrgOptionalInformationEntry
-        private string _orgoptionalinformation;
+        private string _orgoptionalinformation = "";
         public string OrgOptionalInformation
         {
             get { return _orgoptionalinformation; }
@@ -360,7 +366,7 @@ namespace GIBDD
         }
 
         //OutNumberEntry
-        private string _outnumber;
+        private string _outnumber = "";
         public string OutNumber
         {
             get { return _outnumber; }
@@ -375,7 +381,7 @@ namespace GIBDD
         }
 
         //NumberLetterEntry
-        private string _numberletter;
+        private string _numberletter = "";
         public string NumberLetter
         {
             get { return _numberletter; }

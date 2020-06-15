@@ -59,7 +59,7 @@ namespace GIBDD.ModelViews
             AppealBtn = new Command(() => Appeal(), AllowToAppeal);
             SendAppeal = new Command(SendAppealHandler, AllowToAppeal);
             platform.TakePhotoCallBack = PhotoTaken;
-            App.Database.OnChangeAppealsTableRecord += EventHandlerAppealsTable;
+            //App.Database.OnChangeAppealsTableRecord += EventHandlerAppealsTable;
             ListOfAppealsInit();
         }
 
@@ -68,13 +68,14 @@ namespace GIBDD.ModelViews
             var temp = new AppealsTable();
             temp.AppealText = EditorText;
             App.Database.AddRecordToAppealsTable(temp);
+            Application.Current.MainPage.DisplayAlert("Sended", "", "OK");
             Application.Current.MainPage.Navigation.PopToRootAsync();
             OnSendAppealEvent();
         }
 
-        private void EventHandlerAppealsTable(Object sender, EventArgs e) {
-            ListOfAppealsInit();
-        }
+        //private void EventHandlerAppealsTable(Object sender, EventArgs e) {
+        //    ListOfAppealsInit();
+        //}
 
         private async void ListOfAppealsInit()
         {

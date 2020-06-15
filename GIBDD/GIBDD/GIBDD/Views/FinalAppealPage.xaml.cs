@@ -16,6 +16,7 @@ namespace GIBDD.Views
         public FinalAppealPage(AppealModelView context)
         {
             InitializeComponent();
+            Title = "Final stage";
             BindingContext = context;
             //document.getElementsByName("agree")[0].click()
             //document.getElementsByClassName("u-form__sbt")[0].click()
